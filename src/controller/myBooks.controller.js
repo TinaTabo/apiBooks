@@ -2,13 +2,14 @@ const {pool} = require('../database');
 
 async function registerUser(req,res){
     //-- Obtener los datos del nuevo usuario por el body de la petición
-    const {name,last_name,email,photo,password} = req.body;
-    const params = [name,last_name,email,photo,password];
-    let sql = `INSERT INTO user (name,last_name,email,photo,password) VALUES (?,?,?,?,?);`;
+    const {name,last_name,email,password} = req.body;
+    const params = [name,last_name,email,password];
+    let sql = `INSERT INTO user (name,last_name,email,password) VALUES (?,?,?,?);`;
 
     try {
         const [result] = await pool.query(sql,params);
-        res.send(result);
+        let answer = {error: false, code: 200, message: "User successfullly registered", data:null, result:result};
+        res.send(answer);
     } catch (error) {
         res.send(error)
     }
