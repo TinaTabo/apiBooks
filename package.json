@@ -4,7 +4,8 @@
   "description": "API REST de la Aplicación Web (Angular) MyBooks utilizando MySQL para gestionar la BBDD",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "Cristina Taboada Mayo",
   "license": "ISC",
